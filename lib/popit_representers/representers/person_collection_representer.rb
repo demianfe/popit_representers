@@ -1,13 +1,9 @@
-require 'roar/representer/json'
-require 'representable/json/collection'
-require 'representable/json/hash'
+require 'roar/representer'
 require 'popit_representers/representers/person_representer'
 
 module Popit
   module PersonCollectionRepresenter
     include Roar::Representer
-    include Roar::Representer::Feature::Hypermedia
-    # include Representable::JSON::Collection
 
     module Initializer
       def initialize
@@ -19,18 +15,15 @@ module Popit
 
     def self.included(klass)
       klass.send :prepend, Initializer
-      klass.send :include, Roar::Representer::JSON
+      klass.send :include, Roar::Representer::JSON::HAL
       klass.send :include, Roar::Representer::Feature::HttpVerbs
-      # klass.send :include, Representable::JSON::Collection
+      klass.send :include, Roar::Representer::Feature::Hypermedia
     end
-
-    # items extend: PersonRepresenter, class: PopitPerson
-    # self.representation_wrap= :result
 
     collection :result, :extend => PersonRepresenter, :class => PopitPerson
 
     def persons
-      collect
+      self.result
     end
   end
 end

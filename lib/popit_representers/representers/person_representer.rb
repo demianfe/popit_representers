@@ -1,13 +1,11 @@
 require 'roar/representer'
-require 'roar/representer/json'
-require 'roar/representer/feature/hypermedia'
 require 'roar/representer/feature/http_verbs'
 require 'roar/representer/feature/client'
-require 'active_model'
+require 'roar/representer/json/hal'
 
 module Popit
   module PersonRepresenter
-    include Roar::Representer
+    include Roar::Representer::JSON::HAL
 
     module Initializer
       def initialize
@@ -23,9 +21,10 @@ module Popit
       klass.send :include, Roar::Representer::Feature::HttpVerbs
     end
 
-    self.representation_wrap= :result
-
+    property :id
     property :name
+    property :slug
+    property :images
 
   end
 end
