@@ -3,6 +3,10 @@ require 'roar/representer/feature/http_verbs'
 require 'roar/representer/feature/client'
 require 'roar/representer/json/hal'
 
+require 'popit_representers/models/personimage'
+require 'popit_representers/representers/personimage_representer'
+require 'popit_representers/representers/personmembership_representer'
+
 module Popit
   module PersonRepresenter
     include Roar::Representer::JSON::HAL
@@ -24,7 +28,10 @@ module Popit
     property :id
     property :name
     property :slug
-    property :images
+    property :data
+
+    collection :images, extend: PersonimageRepresenter, class: Popit::Personimage
+    collection :memberships, extend: PersonmembershipRepresenter, class: Popit::Personmembership
 
   end
 end
