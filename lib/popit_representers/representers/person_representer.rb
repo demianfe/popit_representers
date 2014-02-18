@@ -4,6 +4,7 @@ require 'roar/representer/feature/client'
 require 'roar/representer/json/hal'
 
 require 'popit_representers/models/personimage'
+require 'popit_representers/models/personmembership'
 require 'popit_representers/representers/personimage_representer'
 require 'popit_representers/representers/personmembership_representer'
 
