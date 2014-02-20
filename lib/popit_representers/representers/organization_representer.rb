@@ -3,13 +3,16 @@ require 'roar/representer/feature/http_verbs'
 require 'roar/representer/feature/client'
 require 'roar/representer/json/hal'
 
+require 'popit_representers/models/personlink'
+require 'popit_representers/representers/personlink_representer'
+
 module Popit
-  module PersonmembershipRepresenter
+  module OrganizationRepresenter
     include Roar::Representer::JSON::HAL
 
     module Initializer
       def initialize
-        extend Popit::PersonmembershipRepresenter
+        extend Popit::OrganizationRepresenter
         extend Roar::Representer::Feature::Client
         super
       end
@@ -17,22 +20,16 @@ module Popit
 
     def self.included(klass)
       klass.send :prepend, Initializer
+      klass.send :include, Roar::Representer::JSON
       klass.send :include, Roar::Representer::Feature::HttpVerbs
     end
 
     property :id
-    property :person_id
-    property :role
-    property :post_id
-    property :label
-    property :start_date
-    property :end_date
-    property :area_id
-    property :area_name
-    property :organization_id
-    property :links
-    property :contact_detail
-    property :url
+    property :founding_date
+    property :name
+    property :slug
+
+    collection :links, extend: PersonlinkRepresenter, class: Popit::Personlink
 
   end
 end

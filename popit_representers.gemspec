@@ -1,7 +1,7 @@
 Gem::Specification.new do |gem|
   gem.name        = 'popit_representers'
-  gem.version     = '0.0.11'
-  gem.date        = '2014-02-05'
+  gem.version     = '0.0.12'
+  gem.date        = '2014-02-18'
   gem.summary     = "Representers for the pop-it module of the Poplus project."
   gem.description = "Representers for the pop-it module of the Poplus project. These provide object-like access to remote data, using Resource-Oriented Architectures in Ruby (ROAR)."
   gem.authors     = ["Marcel Augsburger"]
