@@ -18,7 +18,7 @@ require 'popit_representers/representers/personperiod_representer'
 
 module Popit
   module PersonRepresenter
-    include Roar::Representer::JSON::HAL
+    include Roar::Representer::JSON
 
     module Initializer
       def initialize
@@ -42,7 +42,7 @@ module Popit
 
     collection :images, extend: PersonimageRepresenter, class: Popit::Personimage
     collection :memberships, extend: PersonmembershipRepresenter, class: Popit::Personmembership
-    collection :links, extend: PersonlinkRepresenter, class: Popit::Personlink
+    #collection :links, extend: Popit::PersonlinkRepresenter, class: Popit::Personlink
     collection :commissions, extend: PersoncommissionRepresenter, class: Popit::Personcommission
     collection :represent, extend: PersonrepresentRepresenter, class: Popit::Personrepresent
     collection :parliamentarian_period, extend: PersonperiodRepresenter, class: Popit::Personperiod

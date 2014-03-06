@@ -5,7 +5,7 @@ require 'roar/representer/json/hal'
 
 module Popit
   module PersonlinkRepresenter
-    include Roar::Representer::JSON::HAL
+    include Roar::Representer::JSON
 
     module Initializer
       def initialize

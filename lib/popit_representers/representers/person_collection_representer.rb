@@ -20,6 +20,13 @@ module Popit
       klass.send :include, Roar::Representer::Feature::Hypermedia
     end
 
+    property :total
+    property :page
+    property :per_page
+    property :has_more
+    property :next_url
+    property :prev_url
+
     collection :result, :extend => PersonRepresenter, :class => PopitPerson
 
     def persons
