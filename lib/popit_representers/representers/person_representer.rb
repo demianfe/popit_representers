@@ -39,10 +39,11 @@ module Popit
     property :slug
     property :data
     property :birth_date
+    property :title
 
     collection :images, extend: PersonimageRepresenter, class: Popit::Personimage
     collection :memberships, extend: PersonmembershipRepresenter, class: Popit::Personmembership
-    #collection :links, extend: Popit::PersonlinkRepresenter, class: Popit::Personlink
+    collection :enlaces, extend: Popit::PersonlinkRepresenter, class: Popit::Personlink
     collection :commissions, extend: PersoncommissionRepresenter, class: Popit::Personcommission
     collection :represent, extend: PersonrepresentRepresenter, class: Popit::Personrepresent
     collection :parliamentarian_period, extend: PersonperiodRepresenter, class: Popit::Personperiod
