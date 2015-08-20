@@ -44,6 +44,7 @@ module Popit
     property :data
     property :birth_date
     property :title
+    property :biography
 
     collection :images, extend: PersonimageRepresenter, class: Popit::Personimage
     collection :memberships, extend: PersonmembershipRepresenter, class: Popit::Personmembership

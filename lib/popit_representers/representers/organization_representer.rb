@@ -28,6 +28,7 @@ module Popit
     property :founding_date
     property :name
     property :slug
+    property :classification
 
     collection :links, extend: PersonlinkRepresenter, class: Popit::Personlink
 
