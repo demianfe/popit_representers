@@ -11,6 +11,7 @@ require 'popit_representers/models/personrepresent'
 require 'popit_representers/models/personperiod'
 require 'popit_representers/models/personalinfo'
 require 'popit_representers/models/professionalinfo'
+require 'popit_representers/models/personcontact'
 require 'popit_representers/representers/personimage_representer'
 require 'popit_representers/representers/personmembership_representer'
 require 'popit_representers/representers/personlink_representer'
@@ -19,6 +20,7 @@ require 'popit_representers/representers/personrepresent_representer'
 require 'popit_representers/representers/personperiod_representer'
 require 'popit_representers/representers/personalinfo_representer'
 require 'popit_representers/representers/professionalinfo_representer'
+require 'popit_representers/representers/personcontact_representer'
 
 module Popit
   module PersonRepresenter
@@ -55,6 +57,6 @@ module Popit
     collection :parliamentarian_period, extend: PersonperiodRepresenter, class: Popit::Personperiod
     collection :personal_info, extend: PersonalinfoRepresenter, class: Popit::Personalinfo
     collection :professional_info, extend: ProfessionalinfoRepresenter, class: Popit::Professionalinfo
-
+    collection :contact_details, extend: PersoncontactRepresenter, class: Popit::Personcontact
   end
 end
